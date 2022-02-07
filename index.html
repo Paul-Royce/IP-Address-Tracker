@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- LEAFLET CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <!-- LEAFLET JS -->
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+  
+  <title>Frontend Mentor | IP Address Tracker</title>
+
+</head>
+<body>
+
+  <header>
+    <h1>IP Address Tracker</h1>
+    <div class="search-ctnr">
+      <input type="text" id="ip-input" placeholder="Search for any IP address or domain" role="search">
+      <button id="search-btn"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14"><path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6"/></svg></button>
+    </div>
+  </header>
+  <main>
+    <!-- OUT OF THE FLOW CONTAINER -->
+    <div class="results-ctnr">
+      <!-- IP Address -->
+      <div class="ip-address-ctnr common">
+        <h2 class="results-title-labels">IP ADDRESS</h2>
+        <p class="results-description" id="ip-address-results">000</p>
+      </div>
+      <!-- Location -->
+      <div class="location-ctnr common">
+        <h2 class="results-title-labels">LOCATION</h2>
+        <p class="results-description" id="location-results">000</p>
+      </div>
+      <!-- timezone -->
+      <div class="timezone-ctnr common">
+        <h2 class="results-title-labels">TIMEZONE</h2>
+        <p class="results-description">UTC<span id="utc-results"></span></p>
+      </div>
+      <!-- ISP -->
+      <div class="isp-ctnr common">
+        <h2 class="results-title-labels">ISP</h2>
+        <p class="results-description" id="isp-results">000</p>
+      </div>
+    </div>
+
+    <!-- Map div for LEAFLET -->
+    <div id="map"></div>
+
+
+<!-- END OF MAIN -->
+  </main>
+
+  
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/Paul-Royce">Paul Royce</a>.
+  </footer>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
