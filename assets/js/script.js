@@ -1,9 +1,6 @@
 
-
 const inputField = document.getElementById('ip-input');
 const button = document.getElementById('search-btn');
-const domainUrl = 'https://geo.ipify.org/api/v2/country,city?apiKey=at_u4P1ityJ0kabWrEkYcbvAPnOVpJQY&domain='
-
 
 // LEAFLET API
 // CREATING THE MAP
@@ -21,21 +18,19 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'your.mapbox.access.token'
 }).addTo(myMap);
 
+// TO LOAD THE USER POSITION WHEN THE PAGE HAS FINISHED LOADING
+window.onload = () => {
+    execute();
+}
 
 button.addEventListener("click", execute)
 function execute() {
-
-    if (inputField.value == '') {/* in the case the user leaves the search bar empty and execute a search */
-        inputField.classList.add("error");
-        button.classList.add("error");
-        alert('You should insert an ip address or email in the search bar')
-    } else {
-        fetch(domainUrl + inputField.value)
+        fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_u4P1ityJ0kabWrEkYcbvAPnOVpJQY&domain=${inputField.value}`)
         .then(response => response.json())
         .then(result => {
              console.log(result);
              document.getElementById('ip-address-results').textContent = result.ip;
-             document.getElementById('location-results').textContent = result.location.city;
+             document.getElementById('location-results').textContent = result.location.country;
              document.getElementById('utc-results').textContent = result.location.timezone;
              document.getElementById('isp-results').textContent = result.isp;
              marker.setLatLng([result.location.lat, result.location.lng])
@@ -46,7 +41,6 @@ function execute() {
             console.log(err.message);
             alert('something went wrong with the data');
         }) 
-    }
 }
 
 inputField.addEventListener('focus', function() { 
