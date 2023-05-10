@@ -25,7 +25,7 @@ window.onload = () => {
 
 button.addEventListener("click", execute)
 function execute() {
-        fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.API_KEY}=${inputField.value}`)
+        fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_u4P1ityJ0kabWrEkYcbvAPnOVpJQY&domain=${inputField.value}`)
         .then(response => response.json())
         .then(result => {
              document.getElementById('ip-address-results').textContent = result.ip;
