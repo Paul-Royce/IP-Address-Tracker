@@ -25,10 +25,9 @@ window.onload = () => {
 
 button.addEventListener("click", execute)
 function execute() {
-        fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_u4P1ityJ0kabWrEkYcbvAPnOVpJQY&domain=${inputField.value}`)
+        fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.API_KEY}=${inputField.value}`)
         .then(response => response.json())
         .then(result => {
-             console.log(result);
              document.getElementById('ip-address-results').textContent = result.ip;
              document.getElementById('location-results').textContent = result.location.country;
              document.getElementById('utc-results').textContent = result.location.timezone;
